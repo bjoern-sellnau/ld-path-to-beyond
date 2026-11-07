@@ -56,11 +56,11 @@ export const career: CareerStation[] = [
       "Mehr als 12 Jahre in einer Webagentur, gegründet in Hannover, seit Ende 2011 in Berlin.",
   },
   {
-    period: "06/2002",
+    period: "2000 – 06/2002",
     role: "Staatlich geprüfter Technischer Assistent für Informatik",
     company: "Ausbildung (ITA)",
     description:
-      "Der Startpunkt: erst Websites mit Flash und ActionScript, später Web-Apps mit modernen Technologien.",
+      "Der Startpunkt. HTML, CSS und JavaScript habe ich mir parallel privat mit SELFHTML beigebracht – und war dort irgendwann weiter als in der Schule.",
   },
 ];
 
@@ -123,6 +123,7 @@ export const skills: SkillGroup[] = [
       { name: "GraphQL", level: "basics" },
       { name: "Lucee / Railo / ColdFusion / OpenBD" },
       { name: "PHP" },
+      { name: "Java / JSF (Legacy)", level: "basics" },
       { name: "Stripe" },
     ],
   },
@@ -136,7 +137,7 @@ export const skills: SkillGroup[] = [
   },
   {
     title: "Wurzeln",
-    items: [{ name: "Adobe Flash" }, { name: "ActionScript 2" }],
+    items: [{ name: "Adobe Flash" }, { name: "ActionScript 1 & 2" }, { name: "Flex" }],
   },
 ];
 
@@ -151,6 +152,31 @@ export const tools = [
   { name: "Chrome DevTools", description: "Debugging & Performance" },
   { name: "Testgeräte", description: "Verschiedene Geräte und Browser zum Testen" },
 ];
+
+export interface TechPeriod {
+  label: string;
+  detail?: string;
+  from: number;
+  /** undefined = bis heute */
+  to?: number;
+  kind: "tech" | "role";
+}
+
+/** Grobe Zeitleiste – Angaben von Bjoern (11/2026), „so grob ungefähr“. */
+export const techTimeline: TechPeriod[] = [
+  { label: "Ausbildung ITA", from: 2000, to: 2002, kind: "role" },
+  { label: "HTML, CSS & JavaScript", detail: "angefangen mit SELFHTML", from: 2001, kind: "tech" },
+  { label: "Flash, ActionScript 1 & 2, Flex", from: 2001, to: 2011, kind: "tech" },
+  { label: "ColdFusion, Railo, Lucee", from: 2007, to: 2020, kind: "tech" },
+  { label: "React", from: 2015, kind: "tech" },
+  { label: "Ausbilder Fachinformatiker", detail: "AEVO, IHK Berlin", from: 2019, kind: "role" },
+  { label: "Eigener Azubi", from: 2019, to: 2020, kind: "role" },
+  { label: "Next.js & TypeScript", from: 2020, kind: "tech" },
+  { label: "KI-Agenten", detail: "Claude Code & Co.", from: 2025, kind: "tech" },
+  { label: "JSF / Java", detail: "Legacy", from: 2026, kind: "tech" },
+];
+
+export const timelineRange = { from: 2000, to: 2026 };
 
 /** Technologien für das Laufband auf der Startseite */
 export const techMarquee = [

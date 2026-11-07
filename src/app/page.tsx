@@ -12,7 +12,7 @@ const focusAreas = [
   {
     icon: "</>",
     title: "Frontend Engineering",
-    text: "React, Next.js, TypeScript und React Native – Oberflächen, die schnell, zugänglich und wartbar sind. Seit 2007 im professionellen Einsatz.",
+    text: "Oberflächen mit React, Next.js, TypeScript und React Native – schnell, zugänglich und wartbar. Davor: PHP, ColdFusion und Flash.",
   },
   {
     icon: "✦",
@@ -75,7 +75,7 @@ export default function HomePage() {
 
             <p className="mt-6 max-w-xl text-lg text-fg-muted text-pretty">
               Ich bin <strong className="font-semibold text-fg">{site.owner}</strong>, Senior Developer aus
-              Berlin. Seit 2007 baue ich Web- und App-Frontends mit React, Next.js und Node – und teste im Lab,
+              Berlin. Seit 2007 entwickle ich professionell fürs Web, heute vor allem mit React, Next.js und Node – und teste im Lab,
               wie weit man heute mit KI-Coding-Agenten kommt.
             </p>
 

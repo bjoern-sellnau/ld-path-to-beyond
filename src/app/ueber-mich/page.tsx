@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LogoMark } from "@/components/logo";
+import { TechTimeline } from "@/components/tech-timeline";
 import { ButtonLink, Container, Eyebrow, PageHeader, SectionHeader } from "@/components/ui";
 import { career, certifications, skills, tools } from "@/content/profile";
 import { site } from "@/content/site";
@@ -16,8 +17,8 @@ export default function AboutPage() {
     <>
       <PageHeader eyebrow="Über mich" title={`Hi, ich bin ${site.owner}.`}>
         <p>
-          React-, Software-, App- und Web Engineer aus Berlin. Angefangen habe ich mit Flash und ActionScript,
-          heute entwickle ich mit React, Next.js, TypeScript und Node – zunehmend im Team mit
+          React-, Software-, App- und Web Engineer aus Berlin. Angefangen hat alles 2001 mit HTML, CSS und
+          JavaScript, heute entwickle ich mit React, Next.js, TypeScript und Node – zunehmend im Team mit
           KI-Agenten.
         </p>
       </PageHeader>
@@ -41,10 +42,10 @@ export default function AboutPage() {
               März 2019 Ausbilder für Fachinformatiker Anwendungsentwicklung (AEVO, IHK Berlin).
             </p>
             <p>
-              Die Leidenschaft fürs Web begann früh und wuchs während meiner Ausbildung zum Technischen Assistenten
-              für Informatik. Zuerst habe ich Websites und Anwendungen mit Adobe Flash und ActionScript gestaltet,
-              mit der Zeit wurden daraus Web-Anwendungen mit React, Next.js, GraphQL, TypeScript und
-              unterschiedlichsten Datenbanken.
+              Die Leidenschaft fürs Web begann während meiner Ausbildung zum Technischen Assistenten für
+              Informatik: HTML, CSS und JavaScript habe ich mir mit SELFHTML selbst beigebracht – und war privat
+              irgendwann weiter als im Unterricht. Es folgten zehn Jahre Flash, ActionScript und Flex, dann
+              ColdFusion und Lucee, seit 2015 React und seit 2020 Next.js und TypeScript.
             </p>
             <p>
               <strong className="text-fg">Loona! Designs</strong> ist seit {site.since} meine Plattform, um neue
@@ -57,6 +58,20 @@ export default function AboutPage() {
                 LinkedIn-Profil
               </ButtonLink>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Tech-Zeitleiste */}
+      <section className="py-20">
+        <Container>
+          <SectionHeader
+            eyebrow="Tech-Zeitleiste"
+            title="25 Jahre Web – grob ungefähr."
+            description="Welche Technologien mich wann begleitet haben. Von SELFHTML über Flash bis zu KI-Agenten."
+          />
+          <div className="reveal mt-12">
+            <TechTimeline />
           </div>
         </Container>
       </section>

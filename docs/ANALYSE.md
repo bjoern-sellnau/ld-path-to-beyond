@@ -85,9 +85,9 @@ Stand: 07.11.2026 · Grundlage: Abruf aller erreichbaren Seiten von https://loon
 ### Technik
 
 - **Next.js 16.4** (App Router, Turbopack), **React 19.3**, **TypeScript**, **Tailwind CSS 4**.
-- **Cache Components**: Alle Seiten werden beim Build statisch vorgerendert. Die Lab-Detailseiten entstehen über `generateStaticParams`.
-- **SEO**: Metadata-API mit Titel-Template, Canonicals, Open-Graph-Bild (generiert), `sitemap.xml`, `robots.txt`, Web-Manifest, SVG-Favicon und JSON-LD (`Person`).
-- **Echte 404**: Eine eigene Not-found-Seite. Unbekannte Lab-Slugs werden per `proxy.ts` vor dem Rendern abgefangen und liefern Status 404.
+- **Statisch vorgerendert**: Alle Seiten entstehen beim Build, die Lab-Detailseiten über `generateStaticParams`. Zwei Build-Ziele: Node-Server oder statischer Export für GitHub Pages bzw. jedes andere Static Hosting.
+- **SEO**: Metadata-API mit Titel-Template, Canonicals, Open-Graph-Bild, `sitemap.xml`, `robots.txt`, Web-Manifest, SVG-Favicon und JSON-LD (`Person`).
+- **Echte 404**: Eine eigene Not-found-Seite. Unbekannte Lab-Slugs liefern dank `dynamicParams = false` Status 404.
 - **Alte URLs bleiben gültig**: Die `.htm`-Adressen werden per 308 dauerhaft auf die neuen Routen umgeleitet.
 - **Security-Header**: `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options` und `Permissions-Policy`.
 - **Barrierefreiheit**: Skip-Link, sichtbarer Fokus, `aria-current` in der Navigation, `aria-pressed` bei Filtern, Live-Region für Filterergebnisse, Zoom erlaubt. Alle Text-Tokens erreichen WCAG-AA-Kontrast (≥ 4,5 : 1).
@@ -102,6 +102,6 @@ Stand: 07.11.2026 · Grundlage: Abruf aller erreichbaren Seiten von https://loon
 - [ ] **Screenshots oder Videos** der Experimente ergänzen, mindestens für Corefall und Covert Operations.
 - [ ] **E-Mail-Adresse** bestätigen (`info@loona-designs.de` vs. `info@loonadesigns.de`).
 - [ ] **X-/Twitter-Account** prüfen: noch aktiv? Sonst Link entfernen.
-- [ ] **Hosting** klären. Die alte Seite läuft auf Plesk/PHP. Für Next.js braucht es Node.js (Plesk-Node-Extension, Docker oder z. B. Vercel). `proxy.ts` setzt eine Server-Runtime voraus.
+- [ ] **Hosting** klären. Die alte Seite läuft auf Plesk/PHP. Option A: statischer Export (`npm run build:pages` mit `PAGES_BASE_PATH=""`). Das läuft auf GitHub Pages mit eigener Domain oder direkt auf dem Plesk-Webspace, ganz ohne Node. Option B: Node.js-Server (Plesk-Node-Extension, Docker, Vercel) mit echten 308-Redirects und Security-Headern.
 - [ ] **Datenschutz**: Hosting-Anbieter und Auftragsverarbeitungsvertrag ergänzen. Beide Rechtstexte prüfen lassen.
 - [ ] Optional: Content-Security-Policy mit Nonce, Lab-Einträge als MDX, englische Version.

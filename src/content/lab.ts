@@ -75,7 +75,7 @@ export const experiments: LabExperiment[] = [
     summary:
       "Design-Studien für die neue Loona! Designs Website. Der Next.js-16-Entwurf, den du gerade ansiehst, ist eine davon.",
     description: [
-      "Die alte Seite stammt im Kern aus 2007 bis 2016: tabellarisches Layout, jQuery 1.6 und ein Desktop-first-Raster. Höchste Zeit für einen Neustart.",
+      "Die alte Seite stammt im Kern aus 2007 bis 2016: feste Spaltenbreite, jQuery 1.6 und kein mobiles Layout. Höchste Zeit für einen Neustart.",
       "In diesem Experiment entstehen mehrere Richtungen für das Redesign – von der Informationsarchitektur über das Design-System bis zur Umsetzung mit Next.js 16, React 19 und Tailwind CSS 4.",
     ],
     highlights: [

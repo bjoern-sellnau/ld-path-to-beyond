@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:pages": "DEPLOY_TARGET=github-pages NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://bjoern-sellnau.github.io/ld-path-to-beyond} NEXT_PUBLIC_NOINDEX=${NEXT_PUBLIC_NOINDEX:-true} next build",
+    "preview:pages": "npm run build:pages && node scripts/serve-pages.mjs",
     "start": "next start",
     "lint": "eslint"
   },

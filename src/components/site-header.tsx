@@ -96,7 +96,9 @@ export function SiteHeader() {
                   }`}
                 >
                   {item.label}
-                  {active && <span className="size-1.5 rounded-full bg-accent" aria-hidden />}
+                  {/* Immer rendern, nur ausblenden: Die statische 404-Seite kennt den echten Pfad
+                      erst im Browser – so bleibt die DOM-Struktur beim Hydrieren gleich. */}
+                  <span className={`size-1.5 rounded-full bg-accent ${active ? "" : "invisible"}`} aria-hidden />
                 </Link>
               </li>
             );

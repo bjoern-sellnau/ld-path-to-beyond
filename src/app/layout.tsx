@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Unbounded } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { site } from "@/content/site";
+import { noIndex, ogImage, site } from "@/content/site";
 import "./globals.css";
 
 // next/font lädt die Schriften beim Build und liefert sie selbst aus –
@@ -16,7 +16,7 @@ const unbounded = Unbounded({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(`${site.url}/`),
   title: {
     default: `${site.name} · ${site.owner} – Senior Developer aus Berlin`,
     template: `%s · ${site.name}`,
@@ -42,9 +42,10 @@ export const metadata: Metadata = {
     locale: site.locale,
     siteName: site.name,
     url: site.url,
+    images: [ogImage],
   },
-  twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
+  twitter: { card: "summary_large_image", images: [ogImage] },
+  robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
 };
 
 export const viewport: Viewport = {

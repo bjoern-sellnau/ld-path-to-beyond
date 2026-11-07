@@ -12,6 +12,10 @@ import {
   getAdjacentExperiments,
   getExperiment,
 } from "@/content/lab";
+import { ogImage } from "@/content/site";
+
+// Nur die bekannten Experimente – alles andere liefert eine echte 404
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return experiments.map((e) => ({ slug: e.slug }));
@@ -25,7 +29,7 @@ export async function generateMetadata({ params }: PageProps<"/lab/[slug]">): Pr
     title: `${e.title} – Lab`,
     description: e.summary,
     alternates: { canonical: `/lab/${e.slug}` },
-    openGraph: { title: `${e.title} · Loona! Designs Lab`, description: e.summary },
+    openGraph: { title: `${e.title} · Loona! Designs Lab`, description: e.summary, images: [ogImage] },
   };
 }
 
