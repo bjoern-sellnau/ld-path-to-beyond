@@ -38,8 +38,10 @@ export default function AboutPage() {
           <div className="space-y-5 text-lg text-fg-muted">
             <p>
               Mein Ziel war und ist es, mich immer weiterzuentwickeln. In den letzten Jahren kam ein zweites dazu:
-              das Wissen, das ich mir erarbeitet habe, an die nächste Generation weiterzugeben. Deshalb bin ich seit
-              März 2019 Ausbilder für Fachinformatiker Anwendungsentwicklung (AEVO, IHK Berlin).
+              das Wissen, das ich mir erarbeitet habe, an die nächste Generation weiterzugeben. Ab 2018 habe ich
+              den ganzen Ausbildungsprozess übernommen – von der Stellenausschreibung bis zu den
+              Bewerbungsgesprächen –, im März 2019 die Ausbildereignung (AEVO, IHK Berlin) gemacht und ab August
+              2019 unseren Azubi ausgebildet.
             </p>
             <p>
               Die Leidenschaft fürs Web begann während meiner Ausbildung zum Technischen Assistenten für

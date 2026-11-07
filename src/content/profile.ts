@@ -35,11 +35,11 @@ export const career: CareerStation[] = [
     description: "Software Engineering mit Schwerpunkt React."
   },
   {
-    period: "09/2019 – 03/2020",
+    period: "2018 – 03/2020",
     role: "Ausbilder Fachinformatiker Anwendungsentwicklung",
     company: "PIXELTEX GmbH",
     description:
-      "Ausbildung eines unserer Auszubildenden – Wissen an die nächste Generation weitergeben.",
+      "Ab 2018 der komplette Prozess von der Stellenausschreibung bis zu den Bewerbungsgesprächen, im März 2019 die Ausbildereignung (AEVO), ab August 2019 die Ausbildung unseres Azubis.",
   },
   {
     period: "09/2016 – 2020",
@@ -169,8 +169,8 @@ export const techTimeline: TechPeriod[] = [
   { label: "Flash, ActionScript 1 & 2, Flex", from: 2001, to: 2011, kind: "tech" },
   { label: "ColdFusion, Railo, Lucee", from: 2007, to: 2020, kind: "tech" },
   { label: "React", from: 2015, kind: "tech" },
-  { label: "Ausbilder Fachinformatiker", detail: "AEVO, IHK Berlin", from: 2019, kind: "role" },
-  { label: "Eigener Azubi", from: 2019, to: 2020, kind: "role" },
+  { label: "Ausbilder Fachinformatiker", detail: "Recruiting ab 2018, AEVO 03/2019", from: 2018, kind: "role" },
+  { label: "Eigener Azubi", detail: "ab 08/2019", from: 2019, to: 2020, kind: "role" },
   { label: "Next.js & TypeScript", from: 2020, kind: "tech" },
   { label: "KI-Agenten", detail: "Claude Code & Co.", from: 2025, kind: "tech" },
   { label: "JSF / Java", detail: "Legacy", from: 2026, kind: "tech" },
