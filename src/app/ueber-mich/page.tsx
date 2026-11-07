@@ -40,7 +40,7 @@ export default function AboutPage() {
               Mein Ziel war und ist es, mich immer weiterzuentwickeln. In den letzten Jahren kam ein zweites dazu:
               das Wissen, das ich mir erarbeitet habe, an die nächste Generation weiterzugeben. Ab 2018 habe ich
               den ganzen Ausbildungsprozess übernommen – von der Stellenausschreibung bis zu den
-              Bewerbungsgesprächen –, im März 2019 die Ausbildereignung (AEVO, IHK Berlin) gemacht und ab August
+              Bewerbungsgesprächen –, im März 2019 die Ausbildereignung (AEVO, IHK Berlin) gemacht und ab September
               2019 unseren Azubi ausgebildet.
             </p>
             <p>
