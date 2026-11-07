@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------------- */
+/* Design-Tokens                                                              */
+/* Dark ist das Standard-Theme (Loona = Mond, Nacht, Blau-Glow).              */
+/* ------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: dark;
+  --bg: #05070c;
+  --bg-elevated: #0a0e16;
+  --surface: #0e1420;
+  --surface-2: #141c2b;
+  --border: rgb(148 178 220 / 0.12);
+  --border-strong: rgb(148 178 220 / 0.24);
+  --fg: #e8eef8;
+  --fg-muted: #93a1b8;
+  --fg-subtle: #7d8aa0;
+  --accent: #19a7ff;
+  --accent-strong: #4cc1ff;
+  --accent-fg: #021018;
+  --accent-soft: rgb(25 167 255 / 0.14);
+  --glow: rgb(25 167 255 / 0.35);
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --grid-line: rgb(148 178 220 / 0.06);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #eef2f8;
+  --border: rgb(15 30 60 / 0.1);
+  --border-strong: rgb(15 30 60 / 0.2);
+  --fg: #0a1222;
+  --fg-muted: #4a586e;
+  --fg-subtle: #5f6b7f;
+  --accent: #0072c6;
+  --accent-strong: #005a9e;
+  --accent-fg: #ffffff;
+  --accent-soft: rgb(0 114 198 / 0.1);
+  --glow: rgb(0 114 198 / 0.22);
+  --ok: #15803d;
+  --warn: #b45309;
+  --grid-line: rgb(15 30 60 / 0.05);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg: #f5f7fb;
+    --bg-elevated: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #eef2f8;
+    --border: rgb(15 30 60 / 0.1);
+    --border-strong: rgb(15 30 60 / 0.2);
+    --fg: #0a1222;
+    --fg-muted: #4a586e;
+    --fg-subtle: #5f6b7f;
+    --accent: #0072c6;
+    --accent-strong: #005a9e;
+    --accent-fg: #ffffff;
+    --accent-soft: rgb(0 114 198 / 0.1);
+    --glow: rgb(0 114 198 / 0.22);
+    --ok: #15803d;
+    --warn: #b45309;
+    --grid-line: rgb(15 30 60 / 0.05);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-unbounded), var(--font-geist-sans), sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-spin-slow: spin 60s linear infinite;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Basis                                                                      */
+/* ------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Theme-Toggle-Icons */
+.theme-icon-sun,
+.theme-icon-moon {
+  display: none;
+}
+:root[data-theme="dark"] .theme-icon-sun,
+:root[data-theme="light"] .theme-icon-moon,
+:root:not([data-theme]) .theme-icon-sun {
+  display: block;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .theme-icon-sun {
+    display: none;
+  }
+  :root:not([data-theme]) .theme-icon-moon {
+    display: block;
+  }
+}
+
+/* Feines Raster im Hintergrund – Lab-/Blueprint-Anmutung */
+.bg-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Akzent-Verlauf für Headlines */
+.text-gradient {
+  background: linear-gradient(100deg, var(--fg) 20%, var(--accent-strong) 60%, var(--accent) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Fließtext (Impressum, Datenschutz, Lab-Details) */
+.prose-ld {
+  color: var(--fg-muted);
+  line-height: 1.75;
+}
+.prose-ld h2 {
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.prose-ld h3 {
+  color: var(--fg);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-ld p + p {
+  margin-top: 1rem;
+}
+.prose-ld ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+.prose-ld li + li {
+  margin-top: 0.25rem;
+}
+.prose-ld a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Animationen                                                                */
+/* ------------------------------------------------------------------------- */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll-getriebene Einblendung – reines CSS, Progressive Enhancement */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+/* View Transitions (React <ViewTransition>) */
+::view-transition-group(.morph) {
+  animation-duration: 450ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
